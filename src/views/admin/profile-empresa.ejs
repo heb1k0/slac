@@ -1,0 +1,128 @@
+<%- include ('partials/_header'); %>
+  <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+    <div class="container-fluid">
+        <div class="page-header-content py-5">
+            <h1 class="page-header-title">
+                <div class="page-header-icon"><i data-feather="file"></i></div>
+                <span>Editar perfil de empresa</span>
+            </h1>
+        </div>
+    </div>
+  </div>
+  
+
+
+  <div class="container-fluid mt-n10">
+
+    <div class="row">
+
+        <div class="col-md-9">
+            <form action="/" class="" id="editProfile" method="POST" enctype="multipart/form-data" data-id="<%= session %>">
+
+            <div class="card p-3">
+
+                        <div class="form-group">
+                        <div class="form-group">
+                        <label for="">Codigo postal</label>
+                        <input type="text" class="form-control" name="cp" value="<%= bar.cp %>" required>
+                        </div>
+                        </div>
+            
+                        <div class="form-group">
+                        <div class="form-group">
+                        <label for="">Calle</label>
+                        <input type="text" class="form-control" name="calle" value="<%= bar.calle %>" required>
+                        </div>
+                        </div>
+            
+            
+                        <div class="form-group">
+                        <div class="form-group">
+                        <label for="">Municipio</label>
+                        <input type="text" class="form-control" name="muni" value="<%= bar.muni %>" required>
+                        </div>
+                        </div>
+            
+                        <div class="form-group">
+                        <div class="form-group">
+                        <label for="">Teléfono</label>
+                        <input type="text" class="form-control" name="phone" value="<%= bar.phone %>" required>
+                        </div>
+                        </div>
+            
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="">Pedido minimo </label>
+                            <input type="number" class="form-control" name="min" value="<%= bar.min %>" placeholder="0" required>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="">Coste envio</label>
+                            <input type="number" class="form-control" name="envio" value="<%= bar.envio %>" placeholder="0" required>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="">Descripción</label>
+                            <textarea name="desc" class="form-control" cols="30" rows="10"><%= bar.desc %></textarea required>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2">Categoría comida</label><select class="form-control form-control-solid" name="comida" id="exampleFormControlSelect2" multiple="">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+            
+                    <button class="btn btn-red btn-icon" type="submit">
+                        <i data-feather="feather"></i>
+                    </button>
+            
+                    </div>
+
+                </form>
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="nav-sticky">
+                <div class="card">
+                    <div class="card-body">
+
+                        <p class="statusMsg"></p>
+
+                        <form id="uploadForm"
+                                action="/api/upload-logo/<%= session %>/"
+                                method="POST" enctype="multipart/form-data" data-id="<%= session %>">
+                            <input type="file" class="form-control lift lift-sm p-2" id="file" name="logoimg" /><br>
+                            <input type="submit" value="Subir imagen" class="submitBtn btn btn-primary form-control m-1" name="submit">
+                            <div class="text-center">
+                                <img src="http://www.pedidoss.es/img/logo.png" class="img-thumbnail"  id="myImg" alt="">
+                            </div>
+                        </form>
+
+    
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+   
+    </div>
+  </div>
+  
+
+</div>
+  <%- include ('partials/_footer'); %>

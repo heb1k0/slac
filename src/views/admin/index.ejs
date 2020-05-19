@@ -1,0 +1,48 @@
+<%- include ('partials/_header'); %>
+<div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+  <div class="container-fluid">
+      <div class="page-header-content">
+          <h1 class="page-header-title">
+              <div class="page-header-icon"><i data-feather="activity"></i></div>
+              <span>Dashboard</span>
+          </h1>
+      </div>
+  </div>
+</div>
+<div class="container-fluid mt-n10">
+    <div class="row">
+        <div class="col-xl-4 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">Pedidos completados</div>
+                <div class="text-p"><%= completados.length %></div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">Pedidos pendientes </div>
+                <div class="text-p"><%= pendientes.length %></div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-12">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">Dinero acumulado</div>
+
+                <% var precio = 0 
+                for(pped of pedidos) { 
+                    var sumar = pped .euro;
+                    var precio = parseFloat(precio + sumar);
+                    var precio2 = precio.toFixed(2); %>
+                <%  pped;   %>
+                <% } %> 
+                <div class="text-p"> <%if (!precio2) { %>
+                    0€
+                    <% }else{ %>
+                    <%= precio2 %> €
+                    <% } %></div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+ 
+  <%- include ('partials/_footer'); %>

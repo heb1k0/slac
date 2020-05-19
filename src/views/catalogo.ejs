@@ -1,0 +1,50 @@
+<%- include ('partials/_header'); %>
+<div class="container">
+  <% if (estado.status == false) { %>
+
+    <div class="alert alert-danger" role="alert">
+      En este horario no recibimos pedidos.
+    </div>
+  
+  <% } %>
+  <div class="row">
+
+
+    <div class="col-md-8" >
+
+      <% for(key in tasksHome){ %>
+        <h4 class=" order-gray pb-2 mb-0"><%= key %></h4> 
+        <% for(thisx of tasksHome[key]){ %>
+           <div class="row box-css carrito" data-session="<%= sessionID %>" data-t="<%= thisx.nombre %>" data-p="<%= thisx.precio %>" data-id="<%= thisx.id %>">
+              <div class="col-10 mt-1">
+              <% if(thisx.urlImg){ %>
+               <img src="./asset/img/carta/<%= thisx.urlImg %>"  style="max-width: 150px;" alt="">
+               <% } %> 
+                <%= thisx.nombre %> 
+              </div>
+              <div class="col-2 text-left">
+                <%= thisx.precio %> € 
+                  <button type="button" class=" btn btn-link green" ><i class="fas fa-plus-square"></i></button>         
+              </div>
+          </div>
+
+            <% } %>
+
+      <% } %>
+
+    </div>
+
+    <div class="col-md-4" style="position: sticky;">
+        <h4 class="border-gray pb-2 mb-0">Cesta</h4>
+        <%- include ('partials/_cesta'); %>
+        <% if (!estado.status == false) { %>
+        <div class="text-center"><a href="/<%= slug %>/confirmar/<%= sessionID %>" class="btn btn-link align-items-center">Confirmar pedido</a></div>
+        <% } %>
+    </div>
+  
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="asset/js/carrito.min.js"></script>
+<%- include ('partials/_footer'); %>
+

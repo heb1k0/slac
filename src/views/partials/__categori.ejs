@@ -1,0 +1,13 @@
+    <h4 class=" order-gray pb-2 mb-0"> </h4> 
+    <%= this %>
+    <% for(var i=0; i < this.length; i++) { %> 
+    <div class="row p-3 bg-white rounded shadow-sm cart carrito" style="margin-bottom:10px;" data-session="<%= sessionID %>" data-t="<%= this[i].nombre %>" data-p="<%= this[i].precio %>" data-id="<%= this[i].id %>">
+        <div class="col-10">
+          <%= this[i].nombre %>
+        </div>
+        <div class="col-2 text-left">
+          <%= this[i].precio %> € 
+            <button type="button" class=" btn btn-link green float-right" ><i class="fas fa-plus-square"></i></button>         
+        </div>
+    </div>
+    <% } %>

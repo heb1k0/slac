@@ -1,0 +1,52 @@
+
+  <%- include ('partials/_header'); %>
+
+  <div class="container">
+      <div class="row">
+
+        <div class="col-md-5">
+
+            <div class="card">
+                <div class="card-body">
+                    <form action="/edit/<%= task['id'] %>" method="POST">
+                      
+                        <div class="form-group">
+                            <input type="text" name="nombre" value="<%= task['nombre'] %>"class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <select name="categoria" class="form-control">
+                              <option value="<%= task['categoria.id'] %>"><%= task['categoria.name'] %></option>
+                              <%  for(categoria of categorias) %>
+                              <option value="<%= categoria.id %>"><%= categoria.name %></option>
+                             
+                            </select>
+                          </div>
+                    
+                        <div class="form-group">
+                            <input type="text" name="precio" value="<%= task['precio'] %>" class="form-control">
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary">editar</button>
+                    
+                    </form>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-7">
+
+          <%- include ('partials/_tabla'); %>
+
+            
+        </div>
+
+
+      </div>
+  </div>
+
+<%- include ('partials/_footer'); %>
+

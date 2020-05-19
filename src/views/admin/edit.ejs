@@ -1,0 +1,51 @@
+<%- include ('partials/_header'); %>
+  <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+    <div class="container-fluid">
+        <div class="page-header-content py-5">
+            <h1 class="page-header-title">
+                <div class="page-header-icon"><i data-feather="file"></i></div>
+                <span>Editar producto</span>
+            </h1>
+        </div>
+    </div>
+  </div>
+  <div class="container-fluid mt-n10">
+    <div class="card ">
+      <form action="/back/admin/edit/<%= task['id'] %>" class="p-3" method="POST">
+                      
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre del plato</label>
+            <input type="text" name="nombre" value="<%= task['nombre'] %>"class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Categoria</label>
+            <select name="categoria" class="form-control">
+              <option value="<%= task['categoria'].id %>"><%= task['categoria'].name %></option>
+                              <%  for(categoria of categorias){ %>
+                                  <% if(task['categoria'].name === categoria.name){%>
+                                  
+                                  <% }else{%>
+                                  <option value="<%= categoria.id %>"><%= categoria.name %></option>
+                                  <% }%>
+                              <%  } %>
+            </select>
+          </div>
+    
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Precio</label>
+            <input type="text" name="precio" value="<%= task['precio'] %>" class="form-control">
+        </div>
+    
+        <div class="text-right form-group">
+          <button type="submit" class="btn btn-primary">Editar producto</button>
+        </div>
+    
+      </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+  <%- include ('partials/_footer'); %>

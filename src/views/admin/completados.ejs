@@ -1,0 +1,50 @@
+<%- include ('partials/_header'); %>
+  <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+    <div class="container-fluid">
+        <div class="page-header-content py-5">
+            <h1 class="page-header-title">
+                <div class="page-header-icon"><i data-feather="file"></i></div>
+                <span>Pedidos completados</span>
+            </h1>
+        </div>
+    </div>
+  </div>
+  <div class="container-fluid mt-n10">
+    <div class="card mb-4">
+        <div class="card-header">Pedidos completados</div>
+        <div class="card-body">
+            <div class="datatable table-responsive">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nombre del cliente</th>
+                            <th>Telefono</th>
+                            <th>Hora del pedido</th>
+                            <th c>Estado</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nombre del cliente</th>
+                            <th>Telefono</th>
+                            <th>Hora del pedido</th>
+                            <th>Estado</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+    <% for(var i=0; i < pedidos.length; i++) { %>            
+                    <tr>
+                        <td><%= pedidos[i].name %></td>
+                        <td><%= pedidos[i].phone %></td>
+                        <td><%= pedidos[i].createdAt %></td>
+                        <td><div class="badge badge-info badge-pill">Completado</div></td>
+                    </tr>
+    <% } %> 
+          </tbody>
+           </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+  <%- include ('partials/_footer'); %>

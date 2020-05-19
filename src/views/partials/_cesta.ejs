@@ -1,0 +1,35 @@
+<ul class="list-group mb-3 p-3 bg-white rounded shadow-sm" id="shop">
+    <li class="list-group-item justify-content-between lh-condensed">Lista de productos - <span class="badge badge-secondary"><small class="products text-right"><%= carrito.length %> </small> <small>productos</small></span></li>
+        <% if(carrito){ var precio = 0 %>
+          <% for(var i=0; i < carrito.length; i++) { 
+            var sumar = carrito[i].precio;
+            var precio = parseFloat(precio + sumar);
+            var precio2 = precio.toFixed(2); %> 
+        <li class="list-group-item justify-content-between lh-condensed" id="<%= carrito[i].id %>">
+        <div class="d-flex" >
+          <div style="width: 100%;">
+            <h6 class="my-0"><%= carrito[i].precio %> €</h6>
+            <small class="text-muted"><%= carrito[i].nombre %></small>
+          </div>
+          <p><button type="button" class="delete btn btn-link warning" data-session="<%= sessionID %>" data-t="<%= carrito[i].nombre %>" data-p="<%= carrito[i].precio %>" data-id="<%= carrito[i].id %>"><i class="far fa-trash-alt"></i></button>         </p>
+        </div>
+        </li>
+        <% } %>
+        <% }else{ precio2 = 0;  %>
+        <% } %>
+        
+</ul>
+<ul class="list-group mb-3 p-3 bg-white rounded shadow-sm" id="shop">
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (€)</span>
+          <strong id="total">
+
+            <%if (!precio2) { %>
+            0€
+            <% }else{ %>
+            <%= precio2 %> €
+            <% } %>
+          
+          </strong>
+        </li>
+</ul>

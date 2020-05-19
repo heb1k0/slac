@@ -1,0 +1,30 @@
+<table class="table table-striped table-responsive-xl">
+  <thead class="thead-dark">
+        <tr>
+            <th>Nª</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% for(var i=0; i < tasksHome.length; i++) { %>
+            <tr id="menu<%= tasksHome[i]._id %>">
+              <td><%= i + 1%></td>
+              <td><strong><%= tasksHome[i].nombre %></strong></td>
+              <td><%= tasksHome[i].precio %></td>
+              <td>
+                <a href="#" data-id="<%= tasksHome[i]._id %>"
+                  class="btn btn-danger delete-item" >
+                  X
+                </a>
+                <a href="/back/admin/edit/<%= tasksHome[i]._id %>" class="btn btn-info">
+                  Editar
+                </a>
+              </td>
+            </tr>
+          <% } %>
+    </tbody>
+
+</table>

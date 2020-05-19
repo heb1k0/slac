@@ -1,0 +1,70 @@
+
+  <%- include ('partials/_header'); %>
+
+  <div class="container">
+      <div class="row">
+
+        <div class="col-md-5">
+
+            <div class="card">
+                <div class="card-body">
+
+    
+                  <% if (errorForm) { %>
+
+                    <div class="alert alert-danger" role="alert">
+                      <%= errorForm %>
+                    </div>
+
+                  <% } %>
+
+             
+                  <form action="/add" method="POST">
+ 
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Inserte un titutlo" class="form-control">
+                    </div>
+            
+                    <div class="form-group">
+                    <select name="categoria" class="form-control">
+                      <option value="ZENSAI">ZENSAI</option>
+                      <option value="GYOZAKAYA">GYOZAKAYA</option>
+                      <option value="ESPECIALIDADES SEMICRUDAS">ESPECIALIDADES SEMICRUDAS</option>
+                      <option value="VEGETARIANO">VEGETARIANO</option>
+                      <option value="LOS DE SIEMPRE">LOS DE SIEMPRE</option>
+                      <option value="UMAMI* IZAKAYA">UMAMI* IZAKAYA</option>
+                      <option value="VARIADOS SUSHI">VARIADOS SUSHI</option>
+                      <option value="TRADICIONALES NIPONES">TRADICIONALES NIPONES</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" name="precio" placeholder=0€ class="form-control">
+                </div>
+                
+                    <button type="submit" class="btn btn-primary">Añadir producto</button>
+                
+                </form>
+
+                </div>
+                
+            </div>
+            
+            <br>
+
+
+        </div>
+
+        <div class="col-md-7">
+
+          <%- include ('partials/_tabla'); %>
+
+            
+        </div>
+
+
+      </div>
+  </div>
+
+  <%- include ('partials/_footer'); %>
+

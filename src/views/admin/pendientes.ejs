@@ -1,0 +1,51 @@
+<%- include ('partials/_header'); %>
+  <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+    <div class="container-fluid">
+        <div class="page-header-content py-5">
+            <h1 class="page-header-title">
+                <div class="page-header-icon"><i data-feather="file-text"></i></div>
+                <span><%= pedidos.length %> Pedidos pendientes  </span>
+            </h1>
+        </div>
+    </div>
+  </div>
+  <div class="container-fluid mt-n10 row">
+
+    <% for(var i=0; i < pedidos.length; i++) { num = i + 1 %> 
+      
+      <div class="col-md-3 p-2 <%= pedidos[i].confirmado ? 'visto' : 'novisto animate__animated animate__flash'%> " id="card<%= pedidos[i].id %>" data-id="<%= pedidos[i].id %>">
+      <div class="card card-collapsable">
+        <a class="card-header" href="#c<%= pedidos[i].id %>" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="c<%= pedidos[i].id %>">
+          <span class="badge badge-primary"><i data-feather="file-text"></i> <%= num %></span> <%= pedidos[i].name %> 
+          
+            <div class="card-collapsable-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </a>
+        <div class="collapse collapsed" id="c<%= pedidos[i].id %>">
+            <div class="card-body card-pedidos">
+
+              <address>
+                Dirrecion : <%= pedidos[i].address %> - <%= pedidos[i].num %><br>
+                <abbr title="Phone">P :</abbr><%= pedidos[i].phone %>
+              </address>
+                <% for(carrito of pedidos[i].carritoArray){ %>
+        
+                  <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input checking" id="<%= carrito.id %>" data-id="<%= pedidos[i].id %>"   type="checkbox"  <%= carrito.status ? 'checked ' : ''%> >
+                    <label class="custom-control-label" for="<%= carrito.id %>"><%= carrito.nombre %></label>
+                  </div>
+
+                <% } %>
+      
+            </div>
+            <div class="card-footer bg-success text-center completado" data-id="<%= pedidos[i].id %>">
+              Confirmar
+            </div>
+        </div>
+      </div>
+    </div>
+      <br>
+    <% } %>                  
+  </div>
+  <%- include ('partials/_footer'); %>

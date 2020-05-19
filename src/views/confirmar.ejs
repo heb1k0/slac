@@ -1,0 +1,22 @@
+<%- include ('partials/_header'); %>
+<div class="container">
+  <div class="row">
+   
+    <div class="col-md-4 order-md-2">
+      <h4 class=" order-gray pb-2 mb-0">Cesta</h4> 
+        <%- include ('partials/_cestac'); %>
+    </div>
+
+    <div class="col-md-8 order-md-1">
+      <h4 class=" order-gray pb-2 mb-0">Datos del pedido</h4>  
+      <%- include ('partials/_form'); %>  
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../asset/js/carrito.js"></script>
+<!-- <script src="../asset/js/confirmar.js"></script> -->
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/asset/js/stripe.js"></script>
+<%- include ('partials/_footer'); %>
+

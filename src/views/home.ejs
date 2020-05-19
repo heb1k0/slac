@@ -1,0 +1,23 @@
+
+<div class="container">
+
+    <div class="alert alert-danger" role="alert">
+      En este horario no recibimos pedidos.
+    </div>
+  
+  <div class="row">
+
+        <% for(key in newbar){ %>
+            <%= key %><br><br>
+
+            <% for(row of newbar[key]){ %>
+
+                <%= row.nombre %><br><br>
+
+                <% } %>
+
+        <% } %>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="asset/js/carrito.min.js"></script>
